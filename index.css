@@ -1,0 +1,48 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Syne", sans-serif;
+
+  --color-bg: #020617;
+  --color-surface: rgba(30, 41, 59, 0.5);
+  --color-surface-2: rgba(15, 23, 42, 0.5);
+  --color-surface-3: #1e293b;
+  --color-accent: #38bdf8;
+  --color-accent-2: #34d399;
+  --color-accent-3: #f59e0b;
+  --color-text-main: #f8fafc;
+  --color-text-dim: #94a3b8;
+  --color-text-muted: #64748b;
+  
+  --radius-xl: 1rem;
+  --radius-lg: 0.75rem;
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-text-main font-sans min-h-screen relative overflow-x-hidden;
+  }
+
+  body::after {
+    content: '';
+    @apply fixed -top-[100px] -right-[100px] w-[300px] h-[300px] pointer-events-none z-0 opacity-50;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+  }
+}
+
+.markdown-body h1 { @apply text-2xl font-display font-bold text-accent mb-4 border-b border-white/10 pb-2 mt-6; }
+.markdown-body h2 { @apply text-xl font-display font-bold text-text-main mb-3 mt-6; }
+.markdown-body h3 { @apply text-lg font-bold text-text-dim mb-2 mt-4; }
+.markdown-body p { @apply text-text-dim mb-4 leading-relaxed; }
+.markdown-body ul, .markdown-body ol { @apply pl-6 mb-4 space-y-2; }
+.markdown-body li { @apply text-text-dim list-disc; }
+.markdown-body strong { @apply text-text-main font-semibold; }
+.markdown-body blockquote { @apply border-l-4 border-accent pl-4 italic text-text-dim my-4; }
+.markdown-body pre { @apply bg-surface-3/50 p-4 rounded-xl overflow-x-auto my-4 border border-white/10; }
+.markdown-body code { @apply font-mono text-xs px-1.5 py-0.5 rounded bg-surface-3 text-accent; }
+.markdown-body table { @apply w-full border-collapse my-4 text-sm; }
+.markdown-body th { @apply text-left p-3 bg-surface-3 border border-white/10 text-text-main; }
+.markdown-body td { @apply p-3 border border-white/10 text-text-dim; }
+
